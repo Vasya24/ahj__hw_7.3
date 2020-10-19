@@ -4,6 +4,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   devtool: 'source-map',
+  devServer: {
+    port: 2000,
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
   },
@@ -17,16 +20,8 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpg|gif|ico)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              esModule: false,
-              name: '[name].[ext]',
-            },
-          },
-        ],
+        test: /\.(jpe?g|png|gif|svg)/,
+        loader: 'file-loader?name=src/img/[name].[ext]',
       },
       {
         test: /\.html$/,
