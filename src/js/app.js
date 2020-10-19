@@ -1,1 +1,1 @@
-document.write('Дратути')
+document.write('Дратути');
